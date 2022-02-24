@@ -7,11 +7,10 @@ class RoadSectionView: UIView {
 
     init(origin: CGPoint, direction: Direction, corner: UIRectCorner?) {
         let size = CGSize(width: 50, height: 50)
+        
         super.init(frame: CGRect(origin: origin, size: size))
-
         backgroundImageView.frame = self.bounds
         self.addSubview(backgroundImageView)
-
         self.direction = direction
         self.maskCorner(corner: corner)
     }
@@ -19,16 +18,14 @@ class RoadSectionView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     private func maskCorner(corner: UIRectCorner?) {
         self.corner = corner
         if let corner = corner {
-            let path = UIBezierPath(roundedRect:self.bounds,
-                                    byRoundingCorners:[corner],
-                                    cornerRadii: CGSize(width: 20, height:  20))
-
+            let path = UIBezierPath(roundedRect: self.bounds,
+                                    byRoundingCorners: [corner],
+                                    cornerRadii: CGSize(width: 20, height: 20))
             let maskLayer = CAShapeLayer()
-
             maskLayer.path = path.cgPath
             backgroundImageView.layer.mask = maskLayer
         }
@@ -43,7 +40,7 @@ class SchoolRoadSectionView: RoadSectionView {
         school.frame = CGRect(origin: origin, size: school.frame.size)
         addSubview(school)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -57,7 +54,7 @@ class HomeRoadSectionView: RoadSectionView {
         school.frame = CGRect(origin: origin, size: school.frame.size)
         addSubview(school)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
