@@ -113,6 +113,19 @@ class SchoolBus: Bus {
 
 class Road {
     static let maxLength = 77
+    var sections = [RoadSection]()
+
+    init() {}
+
+    init(length: Int) {
+        var length = length
+        if length > Road.maxLength {
+            length = Road.maxLength
+        }
+        for _ in 0..<length {
+            self.sections.append(RoadSection(type: .plain))
+        }
+    }
 
     static func createStraightRoad() -> Road {
         return Road(length: 11)
@@ -129,21 +142,6 @@ class Road {
         }
         road.sections.append(SchoolRoadSection())
         return road
-    }
-
-
-    var sections = [RoadSection]()
-
-    init() {}
-
-    init(length: Int) {
-        var length = length
-        if length > Road.maxLength {
-            length = Road.maxLength
-        }
-        for _ in 0..<length {
-            self.sections.append(RoadSection(type: .plain))
-        }
     }
 }
 
@@ -193,7 +191,7 @@ class SchoolRoadSection: RoadSection {
 }
 
 var road = Road.createRoadToSchool()
-var unBusScolaire = SchoolBus(driverName: "Joe")
-unBusScolaire.seats = 50
-unBusScolaire.description
-unBusScolaire.drive(road: road)
+var myBus = SchoolBus(driverName: "Joe")
+myBus.seats = 50
+myBus.description
+myBus.drive(road: road)
