@@ -113,7 +113,7 @@ class SchoolBus: Bus {
 
 class Road {
     static let maxLength = 77
-    var sections = [RoadSection]()
+    var sections: [RoadSection] = []
 
     init() {}
 
