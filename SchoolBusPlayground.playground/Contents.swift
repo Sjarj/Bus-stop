@@ -54,5 +54,59 @@ canvas.moveBusForward()
 
 canvas.stopBus()
 
+var numberOfStudentsAtSchool = 0
 
+class Bus {
+    var driverName : String
+    var age : Int
+    var seat : Int
+    var occupiedSeat = 0
+    let nuberOfWeel = 4
+    
+    init(driverName: String, seat: Int, age: Int, occupiedSeat: Int ) {
+        self.driverName = driverName
+        self.seat = seat
+        self.age = age
+        self.occupiedSeat = occupiedSeat
+    }
+    
+    deinit {
+        numberOfStudentsAtSchool += occupiedSeat
+    }
+}
 
+class RoadSection {
+   
+    init(){
+        canvas.createRoadSection()
+    }
+}
+
+class Road {
+   var sections = [RoadSection]()
+    
+   init(length: Int) {
+      for _ in 0..<length {
+         self.sections.append(RoadSection())
+      }
+   }
+}
+
+class Student {
+  var name: String
+  var surname: String
+  var age = 0
+  
+  init(name: String, surname: String) {
+    self.name = name
+    self.surname = surname
+  }
+}
+
+var road = Road(length: 20) // Vous devriez voir une route de 20 sections se dessiner sur le canevas.
+
+var bus = Bus(driverName: "Joe", seat: 32, age: 43,  occupiedSeat: 0)
+
+bus.driverName
+bus.occupiedSeat += 1
+bus.occupiedSeat += 1
