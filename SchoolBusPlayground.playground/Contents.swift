@@ -51,7 +51,7 @@ class SchoolBus: Bus {
     var schoolName = ""
 }
 
-// Mark - enum RoadSectionType
+// Mark: - enum RoadSectionType
 
 enum RoadSectionType {
    case plain
@@ -95,16 +95,24 @@ class Road {
    }
 }
 
+// Mark: - enum Student
+
+enum Color {
+    case red, orange , yellow, green, blue, violet, black, brown
+}
+
 // Mark: - class Student
 
 class Student {
   var name: String
   var surname: String
   var age = 0
+  var favoriteColor: Color = .orange
   
   init(name: String, surname: String) {
     self.name = name
     self.surname = surname
+
   }
     
     static func createJamesBond() -> Student {
