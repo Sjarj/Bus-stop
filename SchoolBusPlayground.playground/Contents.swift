@@ -46,17 +46,33 @@ class Bus {
 
 
 // Mark - Heritage Bus
+
 class SchoolBus: Bus {
     var schoolName = ""
 }
 
+// Mark - enum RoadSectionType
+
+enum RoadSectionType {
+   case plain
+   case home
+   case school
+}
 
 // Mark: - class RoadSection
 
 class RoadSection {
-   
-    init(){
-        canvas.createRoadSection()
+    var type : RoadSectionType
+    init(type : RoadSectionType){
+        self.type = type
+        switch type {
+          case .plain:
+             canvas.createRoadSection()
+          case .home:
+             canvas.createHomeRoadSection()
+          case .school:
+             canvas.createSchoolRoadSection()
+          }
     }
 }
 
@@ -74,7 +90,7 @@ class Road {
        }
        
       for _ in 0..<length {
-         self.sections.append(RoadSection())
+          self.sections.append(RoadSection(type: .plain))
       }
    }
 }
